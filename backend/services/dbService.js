@@ -3,7 +3,7 @@ const MongoClient = require("mongodb").MongoClient;
 // Connection URL
 const url =
   process.env.NODE_ENV === "production"
-    ? "mongodb+srv://daniel:159753@cluster-tkhie.mongodb.net/test?retryWrites=true&w=majority"
+    ? "mongodb+srv://daniel:SyPJuiTyz3WbH6RT@cluster-tkhie.mongodb.net/test?retryWrites=true&w=majority"
     : "mongodb://localhost:27017";
 
 // Database Name
