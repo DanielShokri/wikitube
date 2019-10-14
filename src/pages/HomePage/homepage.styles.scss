@@ -1,0 +1,10 @@
+.home-page {
+  display: flex;
+  margin-top: 20px;
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 66%;
+  }
+}
