@@ -12,6 +12,7 @@ const MongoClient = require("./services/dbService");
 MongoClient.connect();
 app.use(cors({ credentials: true, origin: "http://localhost:3001" }));
 
+app.use(express.static(path.join(__dirname, "build")));
 app.use(
   csp({
     policies: {
@@ -35,7 +36,6 @@ app.use(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.static("public"));
 
 const userRoute = require("./routes/userRoute");
 app.use(userRoute);
