@@ -12,7 +12,7 @@ const SearchInput = ({
   fetchWikipediaTerm,
   handleUserSearchTerm
 }) => {
-  const [userInput, setUserInput] = useState();
+  const [userInput, setUserInput] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -20,6 +20,7 @@ const SearchInput = ({
     setUserSearch(userInput);
     fetchWikipediaTerm(userInput);
     handleUserSearchTerm({ term: userInput });
+    setUserInput("");
   };
 
   return (
@@ -29,6 +30,7 @@ const SearchInput = ({
         type="text"
         placeholder="Search"
         className="mr-sm-2"
+        value={userInput}
       />
       <Button onClick={handleSubmit} variant="outline-success">
         Search

@@ -6,7 +6,8 @@ var axios = Axios.create({
 export default {
   saveUser,
   handleUserLogin,
-  saveUserSearch
+  saveUserSearch,
+  handleLogout
 };
 
 async function handleUserLogin(user) {
@@ -34,6 +35,13 @@ async function saveUserSearch(term) {
   } catch (error) {
     return console.log("cant save search term", error);
   }
+}
+
+function handleLogout() {
+  axios
+    .post(`${_getUrl()}logout`)
+    .then(res => res.data)
+    .catch(err => console.log(err));
 }
 
 function _getUrl(id = "") {

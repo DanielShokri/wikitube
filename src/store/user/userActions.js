@@ -44,7 +44,14 @@ export const handleUserSearchTerm = term => {
   };
 };
 
-export const handleUserLogout = logout => ({
-  type: types.USER_LOGOUT,
-  payload: logout
-});
+export const handleUserLogout = () => {
+  return async dispatch => {
+    try {
+      const logOutUser = await userService.handleLogout();
+      dispatch(fetchData(logOutUser, types.USER_LOGOUT));
+      return logOutUser;
+    } catch (error) {
+      throw error;
+    }
+  };
+};

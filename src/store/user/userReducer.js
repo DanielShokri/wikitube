@@ -19,8 +19,7 @@ export default function videosReducer(state = INITIAL_STATE, action) {
     case types.USER_LOGOUT:
       return {
         ...state,
-        currentUser: action.payload,
-        userSearchHistory: action.payload
+        currentUser: action.payload
       };
     case types.SAVE_USER_SEARCH_TERM:
       return {

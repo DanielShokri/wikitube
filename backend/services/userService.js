@@ -41,15 +41,19 @@ async function handelUserLogin(currUser) {
 async function handleUserSearchTerm(term, currUser) {
   const collection = await dbService.getCollection("users_db");
   try {
-    const user = await collection.updateOne(
+    const updatedUser = await collection.updateOne(
       { email: currUser.email },
       { $push: { searchTerms: term } }
     );
-    if (user) {
-      const updatedUser = await collection.findOne({
+
+    console.log(updatedUser, "this is before sign up user");
+
+    if (updatedUser) {
+      const user = await collection.findOne({
         email: currUser.email
       });
-      return updatedUser;
+      console.log(user, "after sign up");
+      return user;
     }
   } catch (error) {
     console.log(`ERROR: cannot update user `, error);
